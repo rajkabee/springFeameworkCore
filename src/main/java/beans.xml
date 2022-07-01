@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+        <bean id="roleUser" class = "com.example.springCore.Role">
+   			<property name="id" value="2"/>
+   			<property name="name" value="User"/>
+   		</bean>
+        <bean id="user1" class = "com.example.springCore.User">
+        	<constructor-arg name="id" value="1"/>
+        	<constructor-arg name="name" value="Eden Black"/>
+        	<constructor-arg name="email" value="edenblack@gmail.com"/>
+        	<constructor-arg name="contact" value="9876543456"/>
+        	<constructor-arg name='role' ref='roleUser'/>
+        </bean>
+        <bean id="user2" class = "com.example.springCore.User">
+        	<property name="id" value="2"/>
+        	<property name="name" value="Alex Rogue"/>
+        	<property name="email" value="alexrogue@gmail.com"/>
+        	<property name="contact" value="1234565432"/>
+        	<property name="role">
+        		<bean class = "com.example.springCore.Role">
+        			<property name="id" value="1"/>
+        			<property name="name" value="Admin"/>
+        		</bean>
+        	</property>	
+        </bean>
+        
+        
+</beans>
