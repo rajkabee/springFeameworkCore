@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
     xsi:schemaLocation="http://www.springframework.org/schema/beans
-        https://www.springframework.org/schema/beans/spring-beans.xsd">
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        https://www.springframework.org/schema/context/spring-context.xsd">
+        
+        <context:property-placeholder location="application.properties"/>
+        
         <bean id="roleUser" class = "com.example.springCore.Role">
    			<property name="id" value="2"/>
    			<property name="name" value="User"/>
@@ -12,10 +18,10 @@
    			<property name="name" value="Admin"/>
    		</bean>
         <bean id="user1" class = "com.example.springCore.User" autowire="constructor">
-        	<constructor-arg name="id" value="1"/>
-        	<constructor-arg name="name" value="Eden Black"/>
-        	<constructor-arg name="email" value="edenblack@gmail.com"/>
-        	<constructor-arg name="contact" value="9876543456"/>
+        	<constructor-arg name="id" value="${user.id}"/>
+        	<constructor-arg name="name" value="${user.named}"/>
+        	<constructor-arg name="email" value="${user.email}"/>
+        	<constructor-arg name="contact" value="${user.contact}"/>
         </bean>
         <bean id="user2" class = "com.example.springCore.User" autowire="constructor">
         	<property name="id" value="2"/>
